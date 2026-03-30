@@ -25,7 +25,7 @@ app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
   const digest = "sha256=" + hmac.update(req.body).digest("hex");
 
   if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(digest))) {
-    return res.status(403).send("Invalid signature");
+    return res.status(403).send("Invalid signature!");
   }
 
   res.send("OK");
