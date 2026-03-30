@@ -7,7 +7,7 @@ const PORT = 3000;
 const SECRET = "mysecret123";
 
 app.get("/", (req, res) => {
-  res.send("Server is running!!!");
+  res.send("Server is running!!!!!");
 });
 
 app.get("/api/hello", (req, res) => {
