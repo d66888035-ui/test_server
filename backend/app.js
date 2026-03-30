@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from Raspberry Pi" });
+  res.json({ message: "Hello from Raspberry Pi!" });
 });
 
 app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
