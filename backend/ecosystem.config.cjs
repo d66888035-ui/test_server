@@ -3,8 +3,9 @@ module.exports = {
     {
       name: "app",
       script: "./app.js",
+      cwd: "/home/apisit/test_server/backend",
       interpreter: "node",
-      watch: true,
+      watch: false,
     },
   ],
 };
