@@ -7,11 +7,11 @@ const PORT = 3000;
 const SECRET = "mysecret123";
 
 app.get("/", (req, res) => {
-  res.send("Server is running");
+  res.send("Server is running 🚀");
 });
 
 app.get("/api/hello", (req, res) => {
-  res.json({ message: "Hello from Raspberry Pi" });
+  res.json({ message: "Hello from Raspberry Pi 🚀" });
 });
 
 app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
@@ -28,17 +28,16 @@ app.post("/webhook", express.raw({ type: "*/*" }), (req, res) => {
     return res.status(403).send("Invalid signature");
   }
 
-  console.log("Webhook verified, deploying...");
+  res.send("OK");
 
-  exec("bash deploy.sh", (err, stdout, stderr) => {
+  exec("bash /home/apisit/test_server/deploy.sh", (err, stdout, stderr) => {
     if (err) {
       console.error("Deploy error:", err);
       return;
     }
     console.log(stdout);
+    if (stderr) console.error(stderr);
   });
-
-  res.send("OK");
 });
 
 app.listen(PORT, "0.0.0.0", () => {
